@@ -31,12 +31,14 @@ public class App {
 		service.deleteLista(c1);
 		System.out.println("--------------------------------------");
 		service.addLista(c3);
+		service.addEstoque(c3,10);
 		service.getAllLista();
 		// System.out.println(c1);
 
 		System.out.println("--------------------------------------");
 		System.out.println("Estoque do açougue" + "\nDigite a sua opção" + "\n1-Novo registro"
-				+ "\n2-Excluir um registro" + "\n3-Listar os dados");
+				+ "\n2-Excluir um registro" + "\n3-Listar os dados"
+						+ "\n4-Adicionar carnes ao estoque");
 		op = sc.nextInt();
 		System.out.println("--------------------------------------");
 
@@ -85,6 +87,26 @@ public class App {
 			System.out.println("Listando todos os dados\n ");
 
 			service.getAllLista();
+			break;
+		case 4:
+			
+			System.out.println("Digite o id do produto a ser alterado");
+			int op2 = sc.nextInt();
+			
+			for (Carne carne : service.getCarnes()) {
+				if(carne.getId() == op2) {
+					System.out.println("Digite a quantidade a ser adicionada: ");
+					int x = sc.nextInt();
+					service.addEstoque(carne, x);
+				}
+				
+				
+			}
+			
+			for (Carne carne : service.getCarnes()) {
+				System.out.println(carne);
+			}
+			
 			break;
 
 		default:

@@ -36,6 +36,11 @@ public class CarneService {
 			System.out.println(x);
 		}
 	}
+	
+	public void addEstoque(Carne carne, int i) {
+		carne.setQtd(carne.getQtd() + i);
+	}
+	
 	@Override
 	public String toString() {
 		return "CarneService [carnes=" + carnes + "]";
